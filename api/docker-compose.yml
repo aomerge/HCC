@@ -1,0 +1,27 @@
+version: '3.4'
+services:  
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest    
+    environment:
+      SA_PASSWORD: "Password1234"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - api-network
+    volumes:
+      - db-data:/var/opt/mssql
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - api-network
+    depends_on:
+      - db
+networks:
+  api-network:
+
