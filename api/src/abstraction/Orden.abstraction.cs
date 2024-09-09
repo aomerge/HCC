@@ -13,4 +13,8 @@ public interface IOrden
    List<int> obtenerOrdenesPorMesa();
 
    void agregarProductoOrden(int ordId, tbHccOrdenDetalle nuevaOrden );
+
+   void cambiarEstatusOrden(int ordId, byte nuevoEstatus);
+
+   void eliminarOrden(int ordId);
 }

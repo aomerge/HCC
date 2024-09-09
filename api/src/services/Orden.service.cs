@@ -59,4 +59,28 @@ public class ordenService: IOrden
 
     }
 
+    public void cambiarEstatusOrden(int ordId, byte nuevoEstatus)
+    {
+        var orden = _context.Ordenes.Find(ordId);
+        if(orden == null)
+        {
+            throw new Exception("Orden no encontrada");
+        }
+
+        orden.ordEstatus = nuevoEstatus;
+        _context.SaveChanges();
+    }
+
+    public void eliminarOrden(int ordId)
+    {
+        var orden = _context.Ordenes.Find(ordId);
+        if(orden == null)
+        {
+            throw new Exception("Orden no encontrada");
+        }
+
+        orden.ordEstatus = 0;
+        _context.SaveChanges();
+    }
+
 }

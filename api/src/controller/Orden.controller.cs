@@ -72,4 +72,18 @@ public class ordenController : ControllerBase
         return Ok("Producto agregado a la orden");
     }
 
+    [HttpPost("cambiarEstatusOrden/{ordId}")]
+    public IActionResult CambiarEstatusOrden(int ordId, [FromBody] byte nuevoEstatus)
+    {
+        _ordenService.cambiarEstatusOrden(ordId, nuevoEstatus);
+        return Ok("Estatus de la orden cambiado");
+    }
+
+    [HttpPut("eliminarOrden/{ordId}")]
+    public IActionResult EliminarOrden(int ordId)
+    {
+        _ordenService.eliminarOrden(ordId);
+        return Ok("Orden eliminada (borrado lógico).");
+    }
+
 }
