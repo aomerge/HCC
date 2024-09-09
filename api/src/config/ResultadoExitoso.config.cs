@@ -12,4 +12,6 @@ public class resultadoExitoso<T> {
 
     public List<T> Datos { get; set; }    
 
+    public int codigo { get; set; }
+
 }

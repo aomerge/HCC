@@ -1,4 +1,6 @@
 using api.src.model;
+using api.src.abstraction;
+using api.src.services;
 using api.src.config;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddScoped<IOrden, ordenService>();
 
 var app = builder.Build();
 

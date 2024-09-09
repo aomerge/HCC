@@ -1,19 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
-
+using api.src.services;
+using api.src.abstraction;
+using api.src.model;
+using api.src.config;
 namespace api.src.controller;
 
 [ApiController]
 [Route("api/[controller]")]
 public class ordenController : ControllerBase
 {
-    public ordenController()
-    {
-    }
+    private readonly IOrden _ordenService;
 
-    [HttpGet]
-    [Route("/minon")]
+    public ordenController(IOrden ordenService)
+    {
+        _ordenService = ordenService;
+    }    
+
+    [HttpGet]    
     public IActionResult Get()
     {
+        _ordenService.Get();
         return Ok("Ordenes");
     }
+
+    [HttpGet("obtenerOrdenes")]
+    public ActionResult<List<tbHccOrdenes>> GetOrdenes()
+    {
+        var ordenes = _ordenService.GetAll();
+        var respuesta = new resultadoExitoso<tbHccOrdenes>
+            {
+                estatus = 200,
+                Mensaje = "Peticion exitosa",
+                Fecha = DateTime.Now,
+                Datos = ordenes,
+                codigo = 1
+            };        
+
+        return Ok(respuesta);
+    }
+    
+
 }

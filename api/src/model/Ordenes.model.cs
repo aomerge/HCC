@@ -13,13 +13,13 @@ public class tbHccOrdenes
     [Column("mes_id", TypeName = "int")]
     public int mesId { get; set; }
 
-    [ForeignKey("MesId")]
+    [ForeignKey("mesId")]
     public tb_HccMesas Mesa { get; set; }
 
     [Column("catord_id", TypeName = "int")]
-    public int catord_id { get; set; }
+    public int catordId { get; set; }
 
-    [ForeignKey("CatordId")]
+    [ForeignKey("catordId")]
     public tbHccEstatusOrden EstatusOrden { get; set; }
 
     [Column("ord_fecha_inicio", TypeName = "datetime")]

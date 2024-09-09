@@ -1,5 +1,12 @@
 
+using api.src.model;
+
 namespace api.src.abstraction;
-interface orden {
-  public void Get();
+public interface IOrden 
+{
+   void Get();
+
+   List<tbHccOrdenes> GetAll();
+
+   void Add(tbHccOrdenes orden);
 }
