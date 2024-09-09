@@ -1,5 +1,5 @@
 
 namespace api.src.abstraction;
-interface IOrden {
+interface orden {
   public void Get();
 }

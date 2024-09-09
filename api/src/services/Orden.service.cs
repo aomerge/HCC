@@ -1,6 +1,6 @@
 using System;
 using api.src.abstraction;
-public class ordenService: IOrden
+public class ordenService: orden
 {
     public void Get()
     {

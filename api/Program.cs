@@ -1,4 +1,5 @@
 using api.src.model;
+using api.src.config;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,7 +42,7 @@ app.UseCors(builder => builder
 
 app.MapControllers();
 
-app.MapGet("/checkdb", async (AppDbContext dbContext) =>
+app.MapGet("/checkeoBD", async (AppDbContext dbContext) =>
 {
     try
     {
@@ -49,7 +50,16 @@ app.MapGet("/checkdb", async (AppDbContext dbContext) =>
         var canConnect = await dbContext.Database.CanConnectAsync();
         if (canConnect)
         {
-            return Results.Ok("La base de datos está conectada correctamente.");
+
+
+            var respuesta = new resultadoExitoso<object>
+            {
+                estatus = 200,
+                Mensaje = "Conexión exitosa a la base de datos.",
+                Fecha = DateTime.Now,
+            };
+
+            return Results.Ok(respuesta);
         }
         else
         {

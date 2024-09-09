@@ -4,9 +4,9 @@ namespace api.src.controller;
 
 [ApiController]
 [Route("api/[controller]")]
-public class OrdenController : ControllerBase
+public class ordenController : ControllerBase
 {
-    public OrdenController()
+    public ordenController()
     {
     }
 
