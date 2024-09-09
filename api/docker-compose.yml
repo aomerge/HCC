@@ -17,7 +17,9 @@ services:
       - |
         /opt/mssql/bin/sqlservr & 
         sleep 30s
-        /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P TuContraseñaFuerte123 -d master -i /var/opt/mssql/scripts/*.sql -C
+        /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P TuContraseñaFuerte123 -d master -i /var/opt/mssql/scripts/createTable.sql -C & 
+        sleep 30s
+        /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P TuContraseñaFuerte123 -d master -i /var/opt/mssql/scripts/dataTables.sql -C
         wait
     networks:
       - api-network
