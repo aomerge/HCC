@@ -8,5 +8,7 @@ public interface IOrden
 
    List<tbHccOrdenes> GetAll();
 
-   void Add(tbHccOrdenes orden);
+   void insertarOrden(tbHccOrdenes orden);
+
+   List<int> obtenerOrdenesPorMesa();
 }

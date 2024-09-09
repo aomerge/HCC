@@ -46,8 +46,25 @@ public class ordenController : ControllerBase
         {
             return BadRequest("Orden no puede ser nulo");
         }
-        _ordenService.Add(orden);
+        _ordenService.insertarOrden(orden);
         return Ok("Orden agregada");
     }
+
+    [HttpGet("obtenerOrdenesPorMesa")]
+    public IActionResult ObtenerOrdenesPorMesa()
+    {
+        var ordenes = _ordenService.obtenerOrdenesPorMesa();
+        var respuesta = new resultadoExitoso<int>
+            {
+                estatus = 200,
+                Mensaje = "Peticion exitosa",
+                Fecha = DateTime.Now,
+                Datos = ordenes,
+                codigo = 1
+            };  
+        return Ok(respuesta);
+    }
+
+
 
 }

@@ -26,9 +26,23 @@ public class ordenService: IOrden
         return _context.Ordenes.ToList();
     }
 
-    public void Add(tbHccOrdenes orden)
+    public void insertarOrden(tbHccOrdenes orden)
     {
         _context.Ordenes.Add(orden);
         _context.SaveChanges();
     }
+
+    public List<int> obtenerOrdenesPorMesa()
+    {
+        var ordenes = _context.Ordenes.Select(
+            o => new 
+            {
+                ordId = o.ordId,
+                ordMesa = o.Mesa.messNombre,
+                
+            }).ToList();
+        
+        return new List<int>{ordenes.Count()};
+    }
+
 }
