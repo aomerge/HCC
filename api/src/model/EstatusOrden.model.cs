@@ -16,7 +16,7 @@ public class tbHccEstatusOrden{
     
     [Column("catord_estatus")]
     [Required]
-    public string catordEstatus { get; set; }    
+    public byte catordEstatus { get; set; }    
 
     public ICollection<tbHccOrdenes> Ordenes { get; set; }
 
