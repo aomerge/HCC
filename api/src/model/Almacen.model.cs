@@ -1,13 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace api.src.model;
 
+[Table("Tb_Hcc_Almacen")]
 public class tbHccAlmacen{
-    public int Id { get; set; }
+    [Key]
+    [Column("alm_id" ,TypeName = "int")]
+    public int almId { get; set; }
 
-    public int alm_cantidad { get; set; }
+    [Column("alm_cantidad",TypeName = "varchar(50)")]
+    public int almCantidad { get; set; }
 
-    public DateTime alm_fecha_actualizacion { get; set; }
+    [Column("alm_fecha_creacion",TypeName = "datetime")]
+    public DateTime almFechaActualizacion { get; set; }
 
-    public byte alm_estatus { get; set; }
+    [Column("alm_estatus",TypeName = "byte")]
+    public byte almEstatus { get; set; }
 
 }

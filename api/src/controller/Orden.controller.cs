@@ -11,6 +11,7 @@ public class ordenController : ControllerBase
     }
 
     [HttpGet]
+    [Route("/minon")]
     public IActionResult Get()
     {
         return Ok("Ordenes");
