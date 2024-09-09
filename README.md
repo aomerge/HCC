@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a basic README file for the project. It provides a brief overview of the project and its purpose.
+Este es un proyecto de una prueba técnica.
 
 # Rutas de los proyectos
 ## API
