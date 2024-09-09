@@ -11,8 +11,6 @@ This is a basic README file for the project. It provides a brief overview of the
 * Documentación de instalación: `./api/README.md`
 * Swagger: `http://localhost:5000/swagger/index.html`
 
-## App
-
 ## Diagrama
 * Diagrama de componentes: `./diagram/HCC.drawio.png`
 * Drawio: `./diagram/HCC.drawio`
