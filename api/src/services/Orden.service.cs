@@ -25,4 +25,10 @@ public class ordenService: IOrden
     {
         return _context.Ordenes.ToList();
     }
+
+    public void Add(tbHccOrdenes orden)
+    {
+        _context.Ordenes.Add(orden);
+        _context.SaveChanges();
+    }
 }

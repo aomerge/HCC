@@ -38,6 +38,16 @@ public class ordenController : ControllerBase
 
         return Ok(respuesta);
     }
-    
+
+    [HttpPost("agregarOrden")]
+    public IActionResult AddOrden([FromBody] tbHccOrdenes orden)
+    {
+        if(orden == null)
+        {
+            return BadRequest("Orden no puede ser nulo");
+        }
+        _ordenService.Add(orden);
+        return Ok("Orden agregada");
+    }
 
 }
