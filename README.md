@@ -4,31 +4,18 @@
 
 This is a basic README file for the project. It provides a brief overview of the project and its purpose.
 
-## Installation
+# Rutas de los proyectos
+## API
+* Carpeta solución visual studio: `.\api\api.sln`
+* Docker-compose: `./api/docker-compose.yml`
+* Documentación de instalación: `./api/README.md`
+* Swagger: `http://localhost:5000/swagger/index.html`
 
-To install the project, follow these steps:
+## App
 
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Run the `install` command.
+## Diagrama
+* Diagrama de componentes: `./diagram/HCC.drawio.png`
+* Drawio: `./diagram/HCC.drawio`
 
-## Usage
-
-To use the project, follow these steps:
-
-1. Configure the settings.
-2. Run the `start` command.
-3. Access the project through the provided URL.
-
-## Contributing
-
-Contributions are welcome! If you would like to contribute to the project, please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes.
-4. Submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+## Variables de entorno.
+Las variables de entorno se encuentran en el docker-compose.yml del proyecto.
