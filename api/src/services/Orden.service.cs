@@ -45,4 +45,18 @@ public class ordenService: IOrden
         return new List<int>{ordenes.Count()};
     }
 
+    public void agregarProductoOrden(int ordId, tbHccOrdenDetalle nuevaOrden)
+    {
+        var orden = _context.Ordenes.Find(ordId);
+        if(orden == null)
+        {
+            throw new Exception("Orden no encontrada");
+        }
+
+        nuevaOrden.ordId = ordId;
+        _context.DetallesOrden.Add(nuevaOrden);
+        _context.SaveChanges();
+
+    }
+
 }

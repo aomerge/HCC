@@ -65,6 +65,11 @@ public class ordenController : ControllerBase
         return Ok(respuesta);
     }
 
-
+    [HttpPost("agregarProductoOrden/{ordId}")]
+    public IActionResult AgregarProductoOrden(int ordId, [FromBody] tbHccOrdenDetalle nuevaOrden)
+    {
+        _ordenService.agregarProductoOrden(ordId, nuevaOrden);
+        return Ok("Producto agregado a la orden");
+    }
 
 }
