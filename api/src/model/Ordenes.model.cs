@@ -1,10 +1,35 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System;
 namespace api.src.model;
 
+[Table("Tb_HccOrdenes")]
 public class tbHccOrdenes
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
-    public int Capacidad { get; set; }
-    public DateTime FechaCreacion { get; set; }
+    [Key]
+    [Column("ord_id", TypeName = "int")]
+    public int ordId { get; set; }
+    
+    [Column("mes_id", TypeName = "int")]
+    public int mesId { get; set; }
+
+    [ForeignKey("MesId")]
+    public tb_HccMesas Mesa { get; set; }
+
+    [Column("catord_id", TypeName = "int")]
+    public int catord_id { get; set; }
+
+    [ForeignKey("CatordId")]
+    public tbHccEstatusOrden EstatusOrden { get; set; }
+
+    [Column("ord_fecha_inicio", TypeName = "datetime")]
+    public DateTime ordFechaInicio { get; set; }
+
+    [Column("ord_estatus", TypeName = "tinyint")]
+    public byte ordEstatus { get; set; }
+
+    public ICollection<tbHccOrdenDetalle> DetallesOrden { get; set; }
+
+
+
 }
